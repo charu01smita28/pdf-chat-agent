@@ -42,6 +42,25 @@ class ChatAgent:
         self._vector_db_service = vector_db_service
         
     async def handle_queries(self, file, questions: list[Question]):
+        """
+        This method represents the entire processes of extracting answers using the specified LLM.
+
+        It reads a PDF file asynchronously, extracts text chunks from it, and processes
+        a list of questions to find relevant answers using a language model and vector database.
+        It utilizes a custom prompt and agent to handle the queries in parallel, formatting the results
+        before returning them.
+
+        Parameters:
+        - file: An asynchronous file object representing the uploaded PDF document.
+        - questions: A list of `Question` objects, each containing the text of a question to be answered.
+
+        Returns:
+        - A formatted response containing the answers to the questions, extracted from the PDF content.
+        If no relevant context is found, returns a string indicating so.
+
+        Raises:
+        - HTTPException: If an error occurs during the processing of the PDF or queries.
+        """
         try:
             logging.info("Inside handle_queries")
             # Read the file content asynchronously
@@ -88,6 +107,20 @@ class ChatAgent:
     
 
     async def process_questions_parallel(self, questions: List[Question], agent):
+        """
+        Processes multiple questions concurrently taking a list of `Question` objects and an agent, 
+        creating asynchronous tasks for each question to be processed in parallel.
+
+        Parameters:
+        - questions: A list of `Question` objects, each containing the text and ID of a question to be answered.
+        - agent: An agent object that is responsible for processing each question and returning an answer.
+
+        Returns:
+        - A list of results, where each result corresponds to the processed output for a question.
+
+        Raises:
+        - Exception: If an error occurs while processing the questions in parallel.
+        """
         # Create tasks for each question
         tasks = [self.process_single_question(question, agent) for question in questions]
 
@@ -96,6 +129,15 @@ class ChatAgent:
         return results
 
     async def process_single_question(self, question: Question, agent):
+        """ Processes a single question using a language model agent.
+         Parameters:
+            - question: A `Question` object containing the ID and text of the question to be answered.
+            - agent: An agent object that processes the question and returns an answer.
+
+            Returns:
+            - The result of the agent's processing, typically including the answer and any relevant details.
+
+        """
         # Analyze the query using the agent
         return await agent.ainvoke({"question_id": question.id, "question": question.text, "chat_history": [], "agent_scratchpad": "", "response_json": json_format})
 
@@ -155,8 +197,8 @@ class ChatAgent:
         return agent_executor
 
     def _format_results(self, detailed_response):
+        """ Format the response according to the json output needed"""
         # Create a dictionary for questions with confidence score less than 0.30
-        logging.info("Inside formatting response")
         question_answer_dict = {}
         parsed_response = json.loads(detailed_response[0]['output'])
         logging.info(f"Parsed respones = {parsed_response}")

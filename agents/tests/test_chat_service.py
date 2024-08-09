@@ -8,7 +8,7 @@ def chat_agent():
 
 @pytest.mark.asyncio
 async def test_answer_questions(chat_agent):
-    questions = ["What is the main topic?"]
+    questions = ["What is the one line summary of the document?"]
     # Assume sample_document.pdf is preloaded or mocked
     answers = await chat_agent.answer_questions(questions, "resources/sample_document.pdf")
     assert len(answers) == len(questions)

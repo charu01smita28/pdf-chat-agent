@@ -17,7 +17,7 @@ class ChromaDBService:
         return self._db.query(embedding, k=k)
 
     def generate_retriever(self, documents, embeddings):
-        # Add to vectorDB
+        """ Generate the Retriever class for VectorStore by loading the documents and creating the vector database """
         vectorstore = Chroma.from_documents(
             documents=documents,
             collection_name="rag-chroma",

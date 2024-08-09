@@ -8,7 +8,6 @@ class EmbeddingService:
         self._embeddings = OpenAIEmbeddings(api_key=api_key)
         self._model = ChatOpenAI(model=model, temperature=0)
 
-
     async def generate_embedding(self, text: str):
         # Simulate asynchronous embedding generation
         return await asyncio.to_thread(self._embeddings.embed_text, text)
@@ -19,4 +18,5 @@ class EmbeddingService:
         return await asyncio.gather(*tasks)
     
     def generate_embedding(self, text: str):
+        """ Get Embeddings from text query"""
         return self._embeddings.embed_query(text)
