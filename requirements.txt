@@ -1,0 +1,16 @@
+fastapi==0.85.1
+uvicorn
+chroma
+openai
+python-dotenv
+slack-sdk
+PyPDF2
+pytest
+pytest-asyncio
+langchain
+langchain-community
+langchain-openai
+langchainhub
+chromadb
+python-multipart
+pypdf
