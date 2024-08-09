@@ -123,5 +123,32 @@ This project is an AI agent that leverages the capabilities of large language mo
 - With features such as **parallel processing and usage of LangChain agents**, this solution provides an efficient and scalable way to automate question-answering tasks which can be further enhanced and easily appended with more tools (like Google Search or Wikipedia Search).
 - The project also follows a **microservice architecture** with **dependency injection**, which **promotes modularity** and maintainability by allowing **individual components to be developed, tested, and deployed independently**. This approach enables seamless integration of various services, ensuring that each service can evolve without impacting others. Dependency injection facilitates the decoupling of services, making the system more flexible and easier to scale, as components can be swapped or updated without extensive reconfiguration.
 
+## FUTURE WORK OR IMPROVEMENT(s)
+
+- **How to make solution more accurate ?**
+  1. Fine-Tuning the Language Model:
+   - Using domain-specific datasets to fine-tune the language model to better understand and answer questions related to the PDF.
+
+  2. Better Prompt Engineering:
+   - Crafting precise and contextually rich prompts to elicit more accurate responses from the language model.
+   - Experiment with different prompt formats and templates to see which yields the best results.
+
+  3. Larger Context Window:
+   - Utilizing language models with larger context windows to process and understand more extensive sections of the PDF at once,
+     thereby providing more coherent and contextually informed responses.
+
+ - **Enhancing Modularity, Scalability, and Production Readiness**
+
+  1. I already have used a **microservice architecture** for handling tasks like PDF processing, question answering, and Slack integration. This allows for independent scaling and deployment of each component.
+  2. I have also used **dependency injection** frameworks to manage and configure dependencies more cleanly, allowing for easier testing and flexibility in changing implementations.
+  3. I have already used **parallel processing** by using thread pools or asynchronous frameworks to handle multiple requests concurrently without blocking. This can be made better.
+  4. We can utilize **serverless computing** (e.g., AWS Lambda) for functions that can benefit from event-driven scalability.
+  5. We need to Implement a **full suite of unit, integration, and performance tests** to ensure reliability and to catch issues early in the development process.
+  6. **Robust Logging and Monitoring** There is also an important need of Incorporate logging for critical operations and errors to aid in debugging and understanding system behavior.
+     We can use MLFLow and DagsHub for monitoring and logging and also checking the trace of Large Language Models.
+
+### Conclusion
+
+Improving accuracy and making the solution more modular and scalable involves both technical enhancements and adherence to best practices. By focusing on these areas, you can build a robust, efficient, and maintainable application that meets the needs of users and adapts to changing demands and technological advances.
 
 
