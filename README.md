@@ -31,7 +31,7 @@ This project is an AI agent that leverages the capabilities of large language mo
   - [CONCLUSION](#conclusion)
 
 ## Architecture
-![](diagrams/architecture.gif)
+![Architecture Diagram](/AiAgent%20(1).jpg)
 
 ## Setup
 
