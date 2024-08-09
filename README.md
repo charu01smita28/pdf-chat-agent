@@ -45,8 +45,8 @@ This project is an AI agent that leverages the capabilities of large language mo
 
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/yourusername/semantic-search-elasticsearch.git
-   cd semantic-search-elasticsearch
+   git clone https://github.com/charu01smita28/pdf-chat-agent.git
+   cd pdf-chat-agent
 
 2. **Create and Activate Virtual Environment**:
 
@@ -69,7 +69,7 @@ This project is an AI agent that leverages the capabilities of large language mo
 6. **Running the Application**:
     You can run the FastAPI Application:
     ```sh
-    uvicorn agents.app:app --reload
+    uvicorn app:app --reload
 
 7. **Access the Application**:
     Open your browser and go to http://localhost:8000.
@@ -139,13 +139,13 @@ This project is an AI agent that leverages the capabilities of large language mo
 
  - **Enhancing Modularity, Scalability, and Production Readiness**
 
-    1. I already have used a **microservice architecture** for handling tasks like PDF processing, question answering, and Slack integration. This allows for independent scaling and deployment of each component.
-    2. I have also used **dependency injection** frameworks to manage and configure dependencies more cleanly, allowing for easier testing and flexibility in changing implementations.
-    3. I have already used **parallel processing** by using thread pools or asynchronous frameworks to handle multiple requests concurrently without blocking. This can be made better.
+    1. Already used a **microservice architecture** for handling tasks like PDF processing, question answering, and Slack integration. This allows for independent scaling and deployment of each component.
+    2. Already used **dependency injection** frameworks to manage and configure dependencies more cleanly, allowing for easier testing and flexibility in changing implementations.
+    3. Already used **parallel processing** by using thread pools or asynchronous frameworks to handle multiple requests concurrently without blocking. This can be made better.
     4. We can utilize **serverless computing** (e.g., AWS Lambda) for functions that can benefit from event-driven scalability.
     5. We need to Implement a **full suite of unit, integration, and performance tests** to ensure reliability and to catch issues early in the development process.
     6. **Robust Logging and Monitoring** There is also an important need of Incorporate logging for critical operations and errors to aid in debugging and understanding system behavior.
-       We can use MLFLow and DagsHub for monitoring and logging and also checking the trace of Large Language Models.
+       We can use MLFLow and DagsHub for monitoring and logging and also checking the trace of Large Language Models. 
 
 ## DEMO
 
